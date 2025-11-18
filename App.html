@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Skip link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <div class="logo">AutoFlow</div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#builder">Builder</a>
+                    <a href="#examples">Examples</a>
+                    <a href="#workflows">My Workflows</a>
+                    <a href="#help">Help</a>
+                </div>
+                <div class="controls">
+                    <div class="font-size-controls">
+                        <button class="font-size-btn" id="decrease-font" aria-label="Decrease font size">A-</button>
+                        <button class="font-size-btn" id="reset-font" aria-label="Reset font size">A</button>
+                        <button class="font-size-btn" id="increase-font" aria-label="Increase font size">A+</button>
+                    </div>
+                    <button id="contrast-toggle" class="btn btn-secondary">High Contrast</button>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Automate Your Online Work Without Code</h1>
+            <p>Create powerful automations for forms, notifications, and repetitive tasks with our simple drag-and-drop interface.</p>
+            <a href="#builder" class="btn btn-secondary">Start Building</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose AutoFlow?</h2>
+            <div class="features-grid">
+                <div class="feature-card card">
+                    <div class="feature-icon" aria-hidden="true">🚀</div>
+                    <h3>No Coding Required</h3>
+                    <p>Create automations through simple visual tools - no programming knowledge needed.</p>
+                </div>
+                <div class="feature-card card">
+                    <div class="feature-icon" aria-hidden="true">⏱️</div>
+                    <h3>Save Time</h3>
+                    <p>Automate repetitive tasks and focus on what matters most.</p>
+                </div>
+                <div class="feature-card card">
+                    <div class="feature-icon" aria-hidden="true">♿</div>
+                    <h3>Accessibility First</h3>
+                    <p>Designed with all users in mind, including those with disabilities.</p>
+                </div>
+                <div class="feature-card card">
+                    <div class="feature-icon" aria-hidden="true">🔒</div>
+                    <h3>Privacy Focused</h3>
+                    <p>Your data stays secure and private with our encryption protocols.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Builder -->
+    <section id="builder" class="automation-builder">
+        <div class="container">
+            <h2 class="section-title">Create Your Automation</h2>
+            <div class="builder-container">
+                <div class="builder-sidebar">
+                    <h3>Available Actions</h3>
+                    <div class="action-item" draggable="true" data-action="fill-form" tabindex="0">
+                        <h4>Fill Form</h4>
+                        <p>Automatically fill out online forms</p>
+                    </div>
+                    <div class="action-item" draggable="true" data-action="click-button" tabindex="0">
+                        <h4>Click Button</h4>
+                        <p>Automatically click buttons on websites</p>
+                    </div>
+                    <div class="action-item" draggable="true" data-action="send-notification" tabindex="0">
+                        <h4>Send Notification</h4>
+                        <p>Send alerts at specific times</p>
+                    </div>
+                    <div class="action-item" draggable="true" data-action="extract-data" tabindex="0">
+                        <h4>Extract Data</h4>
+                        <p>Collect information from websites</p>
+                    </div>
+                    <div class="action-item" draggable="true" data-action="schedule-task" tabindex="0">
+                        <h4>Schedule Task</h4>
+                        <p>Run automations at specific times</p>
+                    </div>
+                </div>
+                <div class="builder-canvas">
+                    <h3>Your Automation Workflow</h3>
+                    <div class="drop-zone" id="workflow-area">
+                        Drag actions here to build your automation
+                    </div>
+                    <div id="workflow-steps"></div>
+                    <div class="workflow-controls" style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <button id="run-automation" class="btn btn-success">Run Automation</button>
+                        <button id="save-workflow" class="btn btn-primary">Save Workflow</button>
+                        <button id="clear-workflow" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section id="examples" class="examples">
+        <div class="container">
+            <h2 class="section-title">Automation Examples</h2>
+            <div class="examples-grid">
+                <div class="example-card card">
+                    <h3>Form Filling</h3>
+                    <p>Automatically fill and submit online forms with your information.</p>
+                </div>
+                <div class="example-card card">
+                    <h3>Daily Reminders</h3>
+                    <p>Set up notifications for important daily tasks or deadlines.</p>
+                </div>
+                <div class="example-card card">
+                    <h3>Data Collection</h3>
+                    <p>Extract specific information from websites and save it automatically.</p>
+                </div>
+                <div class="example-card card">
+                    <h3>Button Clicking</h3>
+                    <p>Automate clicking specific buttons on websites you visit regularly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Management -->
+    <section id="workflows" class="workflow-management">
+        <div class="container">
+            <h2 class="section-title">My Workflows</h2>
+            <div class="workflow-list" id="workflow-list">
+                <!-- Workflows will be loaded here -->
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button id="import-workflow" class="btn btn-secondary">Import Workflow</button>
+                <input type="file" id="import-file" accept=".json" style="display: none;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AutoFlow</h3>
+                    <p>Making automation accessible to everyone, regardless of technical skills.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#builder">Builder</a></li>
+                        <li><a href="#examples">Examples</a></li>
+                        <li><a href="#workflows">My Workflows</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AutoFlow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Save Workflow Modal -->
+    <div class="modal" id="save-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Save Workflow</h3>
+                <button class="close-modal" id="close-save-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="save-workflow-form">
+                <div style="margin-bottom: 1rem;">
+                    <label for="workflow-name">Workflow Name</label>
+                    <input type="text" id="workflow-name" required style="width: 100%; padding: 0.5rem; margin-top: 0.5rem; border: 1px solid var(--gray); border-radius: var(--border-radius);">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label for="workflow-description">Description (optional)</label>
+                    <textarea id="workflow-description" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem; border: 1px solid var(--gray); border-radius: var(--border-radius);"></textarea>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="button" class="btn btn-secondary" id="cancel-save">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Export Workflow Modal -->
+    <div class="modal" id="export-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Export Workflow</h3>
+                <button class="close-modal" id="close-export-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <p>Copy the JSON below to export your workflow:</p>
+            <textarea id="export-data" style="width: 100%; height: 200px; padding: 0.5rem; margin: 1rem 0; border: 1px solid var(--gray); border-radius: var(--border-radius); font-family: monospace;"></textarea>
+            <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                <button class="btn btn-secondary" id="close-export">Close</button>
+                <button class="btn btn-primary" id="copy-export">Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
